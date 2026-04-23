@@ -1,0 +1,19 @@
+Package: nGSLindicatoR
+Type: Package
+Title: An R package to generate ecological indicators for nGSL
+Version: 0.1.0
+Author: Laurie Isabel
+Maintainer: Laurie Isabel <laurie.isabel@dfo-mpo.gc.ca>
+Description: This package generate the data and the figures to update the indicators of offshore communities of the northern Gulf of St. Lawrence.
+License: GPL-8
+Encoding: UTF-8
+LazyData: true
+Imports:
+ dplyr,
+ tidyr,
+ ggplot2,
+ readr,
+ cowplot,
+ mgcv
+Suggests:
+RoxygenNote: 7.3.2
