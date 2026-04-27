@@ -356,8 +356,7 @@ Northern Gulf of St. Lawrence Offshore Communities</h1>
 
 <div id="download-package" class="section level1">
 <h1>Download package</h1>
-<pre class="r"><code>#devtools::install_github(&quot;laurieisabel/nGSLindicatoR&quot;)
-#library(nGSLindicatoR)</code></pre>
+<pre class="r"><code>devtools::install_github(&quot;laurieisabel/nGSLindicatoR&quot;)</code></pre>
 </div>
 <div id="how-it-works" class="section level1">
 <h1>How it works</h1>
@@ -368,6 +367,15 @@ indicator and generate the files or data.</li>
 <li><code>generate_figures</code>: generate the figures published in
 Isabel et al. (2025).</li>
 </ul>
+<pre class="r"><code>library(nGSLindicatoR)
+
+generate_data(data.directory = &quot;//dcqcimlna01a//BD_Peches//Releves_Poissons_de_Fond_et_Crevette//Donnees_PACES//&quot;, repository = &quot;data/&quot;, overwrite = TRUE)
+
+generate_figures(repository = &quot;data/&quot;, figures = &quot;fig/&quot;, overwrite = TRUE)</code></pre>
+<pre><code>## Warning: No shared levels found between `names(values)` of the manual scale and the
+## data&#39;s fill values.
+## No shared levels found between `names(values)` of the manual scale and the
+## data&#39;s fill values.</code></pre>
 </div>
 
 

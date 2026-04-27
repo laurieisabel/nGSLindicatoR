@@ -46,7 +46,7 @@ generate_data <- function(
 
   # PREPARE DATA ===============================================================
   cle <- c("nav", "rel", "trait")
-  catch <- left_join(catch, set %>% select_at(c(cle, "annee", "no_str")), by = cle)
+  catch <- left_join(catch, set %>% select(all_of(c(cle, "annee", "no_str"))), by = cle)
   catch <- catch %>% filter(annee >= 2006)
   set <- set %>% filter(annee >= 2006)
 
@@ -452,7 +452,7 @@ generate_data <- function(
   # BODY CONDITION =============================================================
   spp <- c(13,90,91,150,187,320,438,444,447,461,478,700,716,745,792,814,889,890,892,893)
   ngsl <- left_join(set, carbio, by = c("nav", "rel", "trait"))
-  ngsl <- ngsl %>% filter(annee %in% c(2006:2024) &
+  ngsl <- ngsl %>% filter(annee %in% c(min:max) &
                           !(rel == 1 & nav == 10) &
                             rel != 19 &
                             typtrait == 1 &

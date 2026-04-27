@@ -196,7 +196,7 @@ generate_figures <- function(
 
   graph3 <- cowplot::plot_grid(graph1, graph2, ncol = 1, align = "v", axis = "top", rel_heights = c(3,1))
 
-  dat_graph <- dat_productivity %>% filter(gr %in% fish & PID %in% c(3, 25)) %>% as.data.frame()
+  dat_graph <- dat_productivity %>% filter(gr %in% inv & PID %in% c(3, 25)) %>% as.data.frame()
   graph4 <- ggplot(dat_graph, aes(x = annee)) +
     geom_bar(aes(y = anom, fill = gr), stat = "identity", position = "stack", colour = "black") +
     geom_hline(yintercept = 0.5, linetype = "dashed") +
@@ -491,7 +491,5 @@ generate_figures <- function(
     theme(legend.spacing.y = unit(5, "cm"),
           legend.title = element_blank())
   ggsave(filename = paste0(figures, "graph_hab_sp.png"), plot = graph_hab_sp, width = 10, height = 8, dpi = 600)
-
-
 
 }
