@@ -24,8 +24,3 @@ generate_data(data.directory = "//dcqcimlna01a//BD_Peches//Releves_Poissons_de_F
 
 generate_figures(repository = "data/", figures = "fig/", overwrite = TRUE)
 ```
-
-    ## Warning: No shared levels found between `names(values)` of the manual scale and the
-    ## data's fill values.
-    ## No shared levels found between `names(values)` of the manual scale and the
-    ## data's fill values.
