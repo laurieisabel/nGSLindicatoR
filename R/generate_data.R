@@ -52,7 +52,7 @@ generate_data <- function(
 
   # Strata
   core <- c(402,403,405,406,408:410,801,803:807,812:818,822:824,828:833,836,837,839,841)
-  core_cv <- c(402, 405, 406, 408, 409, 801, 803:807, 812:818, 822, 823, 828, 830, 832, 836)
+  core_cv <- c(402, 405, 406, 409, 801, 803:807, 812:818, 822, 823, 828, 830, 832, 836)
 
   # Select taxa based on filter made by me and PMSC for functional matrix.
   catch <- left_join(catch, taxa %>% select(espece, action, groups), by = "espece")
@@ -622,6 +622,29 @@ generate_data <- function(
   yr[yr$espece == 8112,]$code <- "PAMO"
   yr[yr$espece == 8135,]$code <- "PONO"
 
+  # Add code for each species
+  yr$code2 <- NA
+  unique(yr$espece)
+  yr[yr$espece == 13,]$code2 <- "MV"
+  yr[yr$espece == 90,]$code2 <- "RÉ"
+  yr[yr$espece == 91,]$code2 <- "RL"
+  yr[yr$espece == 150,]$code2 <- "HA"
+  yr[yr$espece == 187,]$code2 <- "CAP"
+  yr[yr$espece == 320,]$code2 <- "LB"
+  yr[yr$espece == 438,]$code2 <- "MF"
+  yr[yr$espece == 447,]$code2 <- "MB"
+  yr[yr$espece == 461,]$code2 <- "MQB"
+  yr[yr$espece == 478,]$code2 <- "GGB"
+  yr[yr$espece == 792,]$code2 <- "SEB"
+  yr[yr$espece == 814,]$code2 <- "FTA"
+  yr[yr$espece == 889,]$code2 <- "PC"
+  yr[yr$espece == 890,]$code2 <- "PG"
+  yr[yr$espece == 892,]$code2 <- "FG"
+  yr[yr$espece == 893,]$code2 <- "FA"
+  yr[yr$espece == 8057,]$code2 <- "SR"
+  yr[yr$espece == 8111,]$code2 <- "CN"
+  yr[yr$espece == 8112,]$code2 <- "CÉ"
+  yr[yr$espece == 8135,]$code2 <- "PN"
 
   annee <- unique(yr$annee)
   OA <- data.frame()
