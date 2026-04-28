@@ -452,6 +452,15 @@ generate_data <- function(
   # BODY CONDITION =============================================================
   spp <- c(13,90,91,150,187,320,438,444,447,461,478,700,716,745,792,814,889,890,892,893)
   ngsl <- left_join(set, carbio, by = c("nav", "rel", "trait"))
+
+  # Transform disk diameter to total length
+  ngsl$long_epi <- 14.814144 + 1.293289*ngsl$diametre_tot # raie épineuse
+  ngsl$long_lis <- exp(-0.58392875+1.51765121*log(ngsl$diametre_tot)-0.05865993*log(ngsl$diametre_tot)^2) # raie lisse
+
+  ngsl$longueur <- ifelse(ngsl$espece == 90 & is.na(ngsl$longueur) & !is.na(ngsl$diametre_tot), ngsl$long_epi, ngsl$longueur)
+  ngsl$longueur <- ifelse(ngsl$espece == 91 & is.na(ngsl$longueur) & !is.na(ngsl$diametre_tot), ngsl$long_lis, ngsl$longueur)
+
+
   ngsl <- ngsl %>% filter(annee %in% c(min:max) &
                           !(rel == 1 & nav == 10) &
                             rel != 19 &
@@ -461,6 +470,7 @@ generate_data <- function(
                             !is.na(pds_tot) &
                             no_str %in% core &
                             espece %in% spp)
+
 
   ngsl <- left_join(ngsl, coeff, by = "espece")
 
