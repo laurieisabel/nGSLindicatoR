@@ -52,7 +52,7 @@ generate_data <- function(
 
   # Strata
   core <- c(402,403,405,406,408:410,801,803:807,812:818,822:824,828:833,836,837,839,841)
-  core_cv <- c(402, 405, 406, 409, 801, 803:807, 812:818, 822, 823, 828, 830, 832, 836)
+  core_cv <- c(402,405,406,409,801,803,805:807,812:818,822,823,828,830,832,836)
 
   # Select taxa based on filter made by me and PMSC for functional matrix.
   catch <- left_join(catch, taxa %>% select(espece, action, groups), by = "espece")
